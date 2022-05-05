@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   public userZip: string = "";
   public  register:boolean=true;
   // @ts-ignore
- public mocDb=MOCKDB;
+
   // @ts-ignore
   @ViewChildren(LoginComponent)loginComponent;
 
@@ -48,13 +48,13 @@ export class RegisterComponent implements OnInit {
     this.userZip=document.getElementById("inputZip").value;
     // @ts-ignore
 
-    this.mocDb.push({email:this.userEmail,password:this.userPassword,
+    MOCKDB.push({email:this.userEmail,password:this.userPassword,
       phoneNumber:this.userPhoneNumber,
       address:this.userAddress,city:this.userCity,
       country:this.userCountry,zip:this.userZip})
     // @ts-ignore
     //MOCKDB=this.mocDb;
-    this.loginComponent.register=false;
+    this.register=false;
     debugger;
 
 

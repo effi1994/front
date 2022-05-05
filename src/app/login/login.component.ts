@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   public inputEmail: string ="";
   public inputPassword: string ="";
   public register:boolean=false;
-  public Db=MOCKDB;
+
 // @ts-ignore
 @ViewChildren(RegisterComponent)registerComponent;
 
@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.Db);
+    console.log(MOCKDB);
+
+  }
+
+  ngAfterViewInit(){
 
   }
 
@@ -33,7 +37,7 @@ export class LoginComponent implements OnInit {
     // @ts-ignore
     this.inputPassword=document.getElementById("inputPassword3").value;
     let isExist=false;
-    this.Db.forEach(user=>{
+    MOCKDB.forEach(user=>{
       if (user.email == this.inputEmail && this.inputPassword == user.password){
           isExist=true;
       }
